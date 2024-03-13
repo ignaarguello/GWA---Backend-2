@@ -12,6 +12,13 @@ require('./config/database');
 const index_routes = require('./routes/index')
 app.use('/', index_routes)
 
+
+// Metodos de Api
+app.get('/', (req, res) => {
+    res.send('¡Hola rey del mundo!');
+});
+
+
 // Puerto || Port
 app.listen(3000, () => {
     console.log('Servidor escuchando en el puerto 3000');
