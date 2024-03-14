@@ -12,7 +12,10 @@ require('./config/database');
 // Require del modulo index de rutas
 const index_routes = require('./routes/index')
 app.use('/', index_routes)
-app.use(cors())
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+  });
 
 
 // Metodos de Api
