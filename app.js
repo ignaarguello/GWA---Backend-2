@@ -12,7 +12,10 @@ require('./config/database');
 // Require del modulo index de rutas
 const index_routes = require('./routes/index')
 app.use('/', index_routes)
-app.use(cors());
+app.use(cors({
+    origin: ['https://grow-weed-app.vercel.app'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+}));
 
 
 // Metodos de Api
