@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 require('dotenv').config();
 const cors = require('cors')
+app.use(cors());
 
 // Conexion con Mongoose
 require('./config/database');
@@ -12,10 +13,6 @@ require('./config/database');
 // Require del modulo index de rutas
 const index_routes = require('./routes/index')
 app.use('/', index_routes)
-app.use(cors({
-    origin: ['https://grow-weed-app.vercel.app'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-}));
 
 
 // Metodos de Api
