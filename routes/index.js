@@ -6,7 +6,7 @@ const InformesRoutes = require('./Informes');
 
 
 // Usamos Router 'Use' para conectar los modulos
-router.use('/control_desarrollo', ControlDesarrolloRoutes);
+router.use('/desarrollo', ControlDesarrolloRoutes);
 router.use('/informes', InformesRoutes);
 
 

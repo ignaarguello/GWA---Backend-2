@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
 
 const Schema = new mongoose.Schema({
-    "nombre": { type: String, required: true },
     "imagen": { type: String, required: true },
-    "fecha_plantacion": { type: String, required: true },
+    "nombre": { type: String, required: true },
     "genetica": { type: String, required: true },
-    "capacidad_maceta": { type: String, required: true },
-    "informacion_adicional": { type: String, required: false },
+    "tipo_genetica": { type: String, required: true },
+    "estado": { type: String, required: false },
+    "fecha_plantacion": { type: String, required: true },
 })
 
-ControlDesarrolloSchema = mongoose.model('Control', Schema)
+ControlDesarrolloSchema = mongoose.model('Desarrollo', Schema)
 
 
 module.exports = ControlDesarrolloSchema

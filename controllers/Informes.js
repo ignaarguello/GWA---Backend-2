@@ -50,13 +50,35 @@ const getInformeById = async (req, res) => {
 };
 
 const updateInforme = async (req, res) => {
-    await SchemaInformes.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true });
-    res.json('Informe editado con exito');
+    try {
+        const InformeUpdate = await SchemaInformes.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true });
+        res.status(200).json({
+            success: true,
+            message: 'Informe editado con exito',
+            body: InformeUpdate
+        })
+    } catch (error) {
+        res.status(400).json({
+            succes: false,
+            message: 'Error al editar Informe. Intente nuevamente'
+        })
+    }
 };
 
 const deleteInforme = async (req, res) => {
-    await SchemaInformes.findOneAndDelete(req.params.id);
-    res.json('Informe eliminado satisfactoriamente');
+    try {
+        const InformeDelete = await SchemaInformes.findOneAndDelete(req.params.id);
+        res.status(200).json({
+            success: true,
+            message: 'Informe eliminado con exito',
+            body: InformeUpdate
+        })
+    } catch (error) {
+        res.status(400).json({
+            succes: false,
+            message: 'Error al eliminar Informe. Intente nuevamente'
+        })
+    }
 };
 
 module.exports = {
